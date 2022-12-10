@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: django
+spec:
+  rules:
+  - host: hostname.domain.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: django
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
